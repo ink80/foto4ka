@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/
+
+main {
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 20px;
+    /* color: #fff; */
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+body {
+    /* background-color: black; */
+}
+
+.post {
+    margin-bottom: 20px;
+    /* color: #fff; */
+}
