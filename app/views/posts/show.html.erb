@@ -1,6 +1,12 @@
 
 <div class="bg-slate-50 rounded p-4">
-  <h2 class="text-black"><%= @post.title %></h2>
+  <h2 class="font-semibold text-black text-lg"><%= @post.title %></h2>
   <p class="text-slate-500"><%= @post.body %></p>
-  <p><%= link_to "Edit", edit_post_path(@post) %></p>
+  <ul>
+    <li class="underline"><%= link_to "Edit post", edit_post_path(@post) %></li>
+    <li class="underline"><%= link_to "Delete post", post_path(@post), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></li>
+    </ul>
 </div>
