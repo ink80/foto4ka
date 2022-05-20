@@ -1,5 +1,5 @@
 
-<%= form_with model: @post do |form| %>
+<%= form_with :html => {:multipart => true}, model: @post do |form| %>
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -11,10 +11,17 @@
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
-    <% @post.errors.full_messages_for(:body).each do |message| %>
+     <% @post.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+ 
+    <%= form.file_field :image %>
+    <% @post.errors.full_messages_for(:image).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
     <button class="bg-lime-700 hover:bg-lime-900 rounded p-2 text-white cursor-pointer"><%= form.submit %></button>
 <% end %>
+
+

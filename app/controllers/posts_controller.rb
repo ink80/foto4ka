@@ -31,6 +31,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post
     else
+
       render :edit, status: :unprocessable_entity
     end
   end
@@ -45,6 +46,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :image_file_name, :image)
   end
 end
