@@ -1,4 +1,4 @@
-require "test_helper"
+require "./test/test_helper"
 
 class PersonsControllerTest < ActionDispatch::IntegrationTest
   test "should get profile" do
