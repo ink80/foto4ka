@@ -7,8 +7,10 @@
             <div class="bg-slate-50 rounded p-4">
                 <h2 class="text-black"><%=post.title%></h2>
                 <p class="text-slate-500"><%=post.body%></p>
-                <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full" %>
-                <p class="text-black">Автор: <%= post.user.username %></p>
+                <div class="flex items-center gap-2">
+                <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full w-14" %>
+                <p class=" text-black">Автор: <%= post.user.username %></p>
+                </div>
                 <a class="text-black underline" href="<%= post_path(post) %>">View</a>
             </div>
         </li>
