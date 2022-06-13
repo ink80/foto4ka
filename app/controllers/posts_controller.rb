@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).all
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:user).find(params[:id])
   end
 
   def new
@@ -19,11 +21,11 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-     
   end
 
-  private 
-    def post_params
-      params.require(:post).permit(:title, :body)
-    end
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body, :user_id)
+  end
 end
