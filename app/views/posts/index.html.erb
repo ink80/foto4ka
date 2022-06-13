@@ -7,7 +7,7 @@
             <div class="bg-slate-50 rounded p-4">
                 <h2 class="text-black"><%=post.title%></h2>
                 <p class="text-slate-500"><%=post.body%></p>
-                <p class="text-black">Автор: <%= post.user.email %></p>
+                <p class="text-black">Автор: <%= post.user.username %></p>
                 <a class="text-black underline" href="<%= post_path(post) %>">View</a>
             </div>
         </li>
