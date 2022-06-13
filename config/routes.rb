@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  get 'persons/profile', as: 'user_root'
+  # get 'persons/profile', as: 'user_root'
 end
