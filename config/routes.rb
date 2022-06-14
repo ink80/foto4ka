@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts
-
-  # get 'persons/profile', as: 'user_root'
+  resources :posts do
+    resources :comments
+  end
 end
