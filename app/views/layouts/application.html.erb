@@ -12,8 +12,17 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
+    <main class="flex justify-center w-full">
+      <header id="header" class="flex items-center h-28">
+        <a href=<%= root_path %>>
+          <%= image_tag "LogoSample_ByTailorBrands.jpg" %>
+        </a>
+        <%= link_to "Главная", root_path %>
+        <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+      </header>
+      <div id="content" class="container flex flex-col justify-center mx-auto  py-20">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
