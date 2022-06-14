@@ -3,4 +3,33 @@
   <h2 class="text-black"><%= @post.title %></h2>
   <p class="text-black"><%= @post.body %></p>
   <p class="text-black">Автор: <%= @post.user.username %></p>
+<hr>
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <p>
+    <strong>Username:</strong>
+    <%= comment.username %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+<hr>
+<h2>Add a comment:</h2>
+<%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
 </div>
