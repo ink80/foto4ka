@@ -61,6 +61,10 @@ footer a {
     gap: 8px;
 }
 
+#content {
+    margin-bottom: 80px;
+}
+
 .posts-container ul li {
     flex-basis: 33, 3%;
     flex-grow: 1;
