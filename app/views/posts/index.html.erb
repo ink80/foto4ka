@@ -6,6 +6,9 @@
         <li class="post bg-grey">
             <div class="bg-slate-50 rounded p-4">
                 <h2 class="text-black"><%=post.title%></h2>
+                <div class="rounded">
+                    <%= image_tag post.image.url (:thumb) %>            
+                </div> 
                 <p class="text-slate-500"><%=post.body%></p>
                 <div class="flex items-center gap-2">
                 <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full w-14" %>

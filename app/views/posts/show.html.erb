@@ -1,6 +1,7 @@
 
 <div class="bg-slate-50 rounded p-4">
   <h2 class="text-black"><%= @post.title %></h2>
+    <%= image_tag @post.image.url (:medium) %>
   <p class="text-black"><%= @post.body %></p>
   <p class="text-black">Автор: <%= @post.user.username %></p>
 <hr>
