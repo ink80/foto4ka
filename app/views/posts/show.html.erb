@@ -4,6 +4,15 @@
   <p class="text-black"><%= @post.body %></p>
   <p class="text-black">Автор: <%= @post.user.username %></p>
 <hr>
+
+<ul>
+    <li class="underline"><%= link_to "Edit post", edit_post_path(@post) %></li>
+    <li class="underline"><%= link_to "Delete post", post_path(@post), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></li>
+</ul>
+<hr>
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
   <p>
