@@ -38,6 +38,10 @@
     height: 140px;
 }
 
+#greeting {
+    margin-right: 10px;
+}
+
 footer {
     background-color: #181818;
     bottom: 0;

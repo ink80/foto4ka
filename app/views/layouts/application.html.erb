@@ -18,7 +18,12 @@
           <%= image_tag "LogoSample_ByTailorBrands.jpg"%>
         </a>
         <%= link_to "Главная", root_path %>
-        <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+        <% if user_signed_in? %>
+          <span id="greeting">Здравствуйте, <%= current_user.username %></span>
+          <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+        <% end %>
       </header>
       <div id="content" class="container flex flex-col justify-center mx-auto  py-20">
         <%= yield %>
