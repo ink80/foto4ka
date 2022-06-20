@@ -1,14 +1,10 @@
-<h1 class="text-3xl font-bold underline">Feed</h1>
-
 <div class="posts-container">
     <ul>
     <% @posts.each do |post|%>
         <li class="post bg-grey">
-            <div class="bg-slate-50 rounded p-4">
+            <div class="bg-slate-50 flex flex-col gap-4 rounded p-4">
                 <h2 class="text-black"><%=post.title%></h2>
-                <div class="rounded">
-                    <%= image_tag post.image.url (:thumb) %>            
-                </div> 
+                <%= image_tag post.image.url(:medium), :class=>"rounded post-image" %>            
                 <p class="text-slate-500"><%=post.body%></p>
                 <div class="flex items-center gap-2">
                 <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full w-14" %>

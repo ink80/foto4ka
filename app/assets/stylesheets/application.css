@@ -75,3 +75,9 @@ footer a {
     flex-shrink: 1;
     min-width: 400px;
 }
+
+.post-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}

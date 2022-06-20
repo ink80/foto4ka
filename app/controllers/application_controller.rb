@@ -4,7 +4,13 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     root_path
+    # if current_user.has_role?(:admin)
+    #   dashboard_path
+    # elsif current_user.has_role?(:student)
+    #   root_path
+   #end
   end
+  
 
   def after_sign_out_path_for(resource)
     root_path
