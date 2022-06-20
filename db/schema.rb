@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_15_072054) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_20_100434) do
   create_table "comments", force: :cascade do |t|
     t.string "username"
     t.text "body"
@@ -46,8 +46,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_15_072054) do
     t.string "avatar_content_type"
     t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role"], name: "index_users_on_role"
   end
 
   add_foreign_key "comments", "posts"
