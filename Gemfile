@@ -39,6 +39,8 @@ gem "http"
 
 gem "pry-byebug"
 
+gem 'rails_admin', '~> 3.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -85,3 +87,4 @@ end
 
 
 gem "tailwindcss-rails", "~> 2.0"
+gem "sassc-rails"
