@@ -1,45 +1,52 @@
 
-<div class="bg-slate-50 rounded p-4">
-  <h2 class="text-black"><%= @post.title %></h2>
-    <%= image_tag @post.image.url (:medium) %>
-  <p class="text-black"><%= @post.body %></p>
-  <p class="text-black">Автор: <%= @post.user.username %></p>
-<hr>
+<div class="post-content bg-slate-50 flex justify-start gap-4 rounded p-4">
+  <div class="post-image">
+    <%= image_tag @post.image.url (:big), :class=>"rounded" %>
+  </div>
+  <div class="flex flex-col gap-4 post-data">
+    <h2 class="text-black"><strong><%= @post.title %></strong></h2>
+    <p class="text-black"><%= @post.body %></p>
+    <ion-icon name="heart"></ion-icon>
+    <div class="flex gap-4">
+      <%= image_tag @post.user.avatar.url(:thumb), :class=>"rounded-full small-avatar" %>
+      <p class="text-black"><%= @post.user.username %></p>
+    </div>
 
-<ul>
-    <li class="underline"><%= link_to "Edit post", edit_post_path(@post) %></li>
-    <li class="underline"><%= link_to "Delete post", post_path(@post), data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    } %></li>
-</ul>
-<hr>
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-  <p>
-    <strong>Username:</strong>
-    <%= comment.username %>
-  </p>
+    <ul class="flex gap-4">
+        <li class="underline"><%= link_to "Редактировать", edit_post_path(@post)%></li>
+        <li class="underline"><%= link_to "Удалить", post_path(@post), data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        } %></li>
+    </ul>
+  </div>
+  <div class="post-comments">
+    <h2><strong>Комментарии</strong></h2>
+    <% @post.comments.each do |comment| %>
+      <p>
+        <strong>Username:</strong>
+        <%= comment.username %>
+      </p>
 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
-<hr>
-<h2>Add a comment:</h2>
-<%= form_with model: [ @post, @post.comments.build ] do |form| %>
-  <p>
-    <%= form.label :username %><br>
-    <%= form.text_field :username %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.body %>
+      </p>
+    <% end %>
 
+    <h2>Add a comment:</h2>
+    <%= form_with model: [ @post, @post.comments.build ] do |form| %>
+      <p>
+        <%= form.label :username %><br>
+        <%= form.text_field :username %>
+      </p>
+      <p>
+        <%= form.label :body %><br>
+        <%= form.text_area :body %>
+      </p>
+      <p>
+        <%= form.submit %>
+      </p>
+    <% end %>
+  </div>
 </div>
