@@ -25,10 +25,10 @@
           <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
         <% end %>
       </header>
-      <div id="content" class="container flex flex-col justify-center mx-auto  py-20">
+      <div id="content" class="container flex flex-col justify-center mx-auto  pb-20">
         <%= yield %>
       </div>
-      <footer>
+      <footer class="self-end">
         <a href=<%= root_path %>>
           2022 Foto4ka
         </a>

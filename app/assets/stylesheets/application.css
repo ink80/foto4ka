@@ -44,14 +44,14 @@
 
 footer {
     background-color: #181818;
-    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100px;
-    margin-top: auto;
-    position: fixed;
     width: 100%;
+    position: relative;
+    top: auto;
+    bottom: 0px;
 }
 
 footer a {
@@ -66,6 +66,7 @@ footer a {
 }
 
 #content {
+    min-height: 70vh;
     margin-bottom: 80px;
 }
 
@@ -112,4 +113,37 @@ footer a {
     background-color: #fff;
     border: 1px solid #eeeeee;
     border-radius: 4px;
+}
+
+.add-post {
+    margin-top: 20px;
+}
+
+.add-post-btn {
+    padding: 5px 20px;
+    background-color: rgb(93, 95, 95);
+    color: #fff;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+    .posts-container ul li {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    #header a:first-child {
+        flex-basis: 100%;
+        flex-grow: 1;
+        margin-bottom: 16px;
+    }
+    #header a:first-child img {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
