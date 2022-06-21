@@ -6,13 +6,15 @@
   <p class="text-black">Автор: <%= @post.user.username %></p>
 <hr>
 
-<ul>
-    <li class="underline"><%= link_to "Edit post", edit_post_path(@post) %></li>
-    <li class="underline"><%= link_to "Delete post", post_path(@post), data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    } %></li>
-</ul>
+<% if current_user == @post.user || current_user.role == 'admin' %>
+  <ul>
+      <li class="underline"><%= link_to "Edit post", edit_post_path(@post) %></li>
+      <li class="underline"><%= link_to "Delete post", post_path(@post), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                      } %></li>
+  </ul>
+<% end %>
 <hr>
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>

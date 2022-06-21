@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).all
+    authorize @posts
   end
 
   def show
@@ -11,11 +12,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = current_user.posts.new(post_params)
-
+    authorize @post
     if @post.save
       redirect_to @post
     else
@@ -25,11 +27,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def update
     @post = Post.find(params[:id])
-
+    authorize @post  
     if @post.update(post_params)
       redirect_to @post
     else
@@ -40,6 +43,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    authorize @post
     @post.destroy
 
     redirect_to root_path, status: :see_other
