@@ -70,7 +70,7 @@ footer a {
 }
 
 .posts-container ul li {
-    flex-basis: 33, 3%;
+    flex-basis: 32.9%;
     flex-grow: 0;
     flex-shrink: 1;
     min-width: 400px;

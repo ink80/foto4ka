@@ -3,12 +3,12 @@
     <% @posts.each do |post|%>
         <li class="post bg-grey">
             <div class="bg-slate-50 flex flex-col gap-4 rounded p-4">
-                <h2 class="text-black"><%=post.title%></h2>
+                <h2 class="text-black"><strong><%=post.title%></strong></h2>
                 <%= image_tag post.image.url(:medium), :class=>"rounded post-image" %>            
                 <p class="text-slate-500"><%=post.body%></p>
                 <div class="flex items-center gap-2">
                 <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full w-14" %>
-                <p class=" text-black">Автор: <%= post.user.username %></p>
+                <p class=" text-black text-slate-500">Автор: <%= post.user.username %></p>
                 </div>
                 <a class="text-black underline" href="<%= post_path(post) %>">View</a>
             </div>
