@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  enum role: [:user, :vip, :admin], _suffix: :role
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :posts, dependent: :destroy
