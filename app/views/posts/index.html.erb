@@ -7,6 +7,7 @@
                     <h2 class="text-black"><%=post.title%></h2>
                     <%= image_tag post.image.url(:big), :class=>"rounded post-image" %>            
                     <p class="text-slate-500"><%=post.body%></p>
+                    <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
                     <div class="flex items-center gap-2">
                     <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full small-avatar" %>
                     <p class=" text-black"><%= post.user.username %></p>

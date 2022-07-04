@@ -7,6 +7,7 @@ class Post < ApplicationRecord
                             path: ':rails_root/public/assets/posts/:id/:style/:basename.:extension'
 
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 10 }
