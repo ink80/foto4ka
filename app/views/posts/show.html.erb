@@ -6,7 +6,13 @@
   <div class="flex flex-col gap-4 post-data">
     <h2 class="text-black"><strong><%= @post.title %></strong></h2>
     <p class="text-black"><%= @post.body %></p>
-    <ion-icon name="heart"></ion-icon>
+    <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+    <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+    <% if pre_like %>
+      <%= button_to 'Unlike post', post_like_path(@post, pre_like), method: :delete %>
+    <% else %>
+      <%= button_to 'Like post', post_likes_path(@post), method: :post %>
+    <% end %>
     <div class="flex gap-4">
       <%= image_tag @post.user.avatar.url(:thumb), :class=>"rounded-full small-avatar" %>
       <p class="text-black"><%= @post.user.username %></p>
