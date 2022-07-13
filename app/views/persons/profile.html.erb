@@ -1,4 +1,51 @@
-<h1>Persons#profile</h1>
-<p>Find me in app/views/persons/profile.html.erb</p>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="user-content" style="display:flex; gap: 16px"> 
+    <div class="user-info" style="flex-basis: 33%">
+        <h1>User: <%= current_user.username %></h1>
+
+        <div style="width: 150px;height:150px">
+            <%= image_tag current_user.avatar.url(:thumb), :class=>"rounded-full" %>
+        </div>    
+            
+        <p> Followers count: <%= current_user.followers.count %></p>
+        <p> Following count: <%= current_user.following.count %></p>
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+    </div>
+
+    <div class="following-content">
+        <h2>Following Posts</h2>
+        <ul>
+            <% current_user.following.each do |followed| %>
+                <li>
+                    <ul>
+                        <% followed.posts.each do |post|%>
+                            <li>
+                                <div style="width:300px">
+                                    <a class="text-black underline" href="<%= post_path(post) %>">
+                                        <div class="bg-slate-50 flex flex-col gap-4 rounded p-4">
+                                            <h2 class="text-black"><%=post.title%></h2>
+                                            <%= image_tag post.image.url(:big), :class=>"rounded post-image" %>            
+                                            <p class="text-slate-500"><%=post.body%></p>
+                                            <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                                            <div class="flex items-center gap-2">
+                                            <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full small-avatar" %>
+                                            <p class=" text-black"><%= post.user.username %></p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        <%end%>    
+                    </ul>
+                </li>
+            <%end%>
+        </ul>
+    </div>
+
+    <div class="follower-content">
+
+    </div>
+
+</div>
+
