@@ -14,9 +14,12 @@
       <%= button_to 'Like post', post_likes_path(@post), method: :post %>
     <% end %>
     <div class="flex gap-4">
+    <%= link_to view_profile_path(@post.user), method: :get do %>
       <%= image_tag @post.user.avatar.url(:thumb), :class=>"rounded-full small-avatar" %>
       <p class="text-black"><%= @post.user.username %></p>
+    <%end%>
     </div>
+    
     <% if current_user == @post.user || current_user.role == 'admin'%>
     <ul class="flex gap-4">
         <li class="underline"><%= link_to "Редактировать", edit_post_path(@post)%></li>

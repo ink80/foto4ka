@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find
     authorize @post  
     if @post.update(post_params)
       redirect_to @post

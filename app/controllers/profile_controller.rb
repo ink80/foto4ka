@@ -10,7 +10,7 @@ class ProfileController < ApplicationController
     @profile = User.select(:name, :bio, 'profiles.id').joins(:profile).find_by('users.id' => id)
 
     # only get post by user here
-    @all_posts = Post.joins(:user).select(:id, :image, :created_at, :updated_at,
+    @all_posts = Post.joins(:user).select(:id, :title, :body, :image, :image_file_name, :created_at, :updated_at,
                                           :user_id).where('users.id' => id).order('posts.updated_at').reverse_order
   end
 
