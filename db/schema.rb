@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_14_125241) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_07_15_070801) do
+
   create_table "comments", force: :cascade do |t|
     t.string "username"
     t.text "body"
@@ -56,6 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_125241) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "bio"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -79,4 +88,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_125241) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "users"
 end
