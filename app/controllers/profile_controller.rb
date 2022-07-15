@@ -8,6 +8,8 @@ class ProfileController < ApplicationController
     @follower_count = @user.followers_count
 
     @profile = User.select(:name, :bio, 'profiles.id').joins(:profile).find_by('users.id' => id)
+    
+    @following_posts = Post.includes(:user).where('user_id' => @user.all_following)
 
     # only get post by user here
     @all_posts = Post.joins(:user).select(:id, :title, :body, :image, :image_file_name, :created_at, :updated_at,
