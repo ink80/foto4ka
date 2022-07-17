@@ -13,11 +13,15 @@
             <span><%= @follower_count %> followers</span>
             <% end %>
 
-
-        <div class="btn btn-sm btn-secondary" id="follow-btn">
+          <% if current_user %>
+            <%= link_to profile_edit_path(), method: :get do %>
+              <div class="btn btn-sm btn-outline-secondary">Редактировать профиль</div>
+            <% end %>
+          <% else %>
+            <div class="btn btn-sm btn-secondary" id="follow-btn">
               <%= render 'follows/follow_button', profile_id: params[:id] %>
-       </div>
-
+            </div>
+          <% end %>
 
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>

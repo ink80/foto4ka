@@ -1,4 +1,4 @@
-class PersonsController < ApplicationController
-  def profile
-  end
-end
+# class PersonsController < ApplicationController
+#   def profile
+#   end
+# end
