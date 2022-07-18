@@ -4,10 +4,11 @@
     <div class="user-info" style="flex-basis: 20%">
         <h1>User: <%= @user.username %></h1>
 
-        <div style="width: 150px;height:150px">
+        <div style="width: 100px;height:100px">
             <%= image_tag @user.avatar.url(:thumb), :class=>"rounded-full" %>
         </div>    
-        <p><%= @profile.bio%></p>    
+        <p><%= @profile.bio%></p>
+    
         <%= link_to follows_path(@user.id), method: :get do %>
             <span><%= @following_count %> following</span>
             <span><%= @follower_count %> followers</span>
