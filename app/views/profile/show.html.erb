@@ -14,7 +14,7 @@
             <span><%= @follower_count %> followers</span>
             <% end %>
 
-          <% if current_user %>
+          <% if current_user.id == params['id'].to_i %>
             <%= link_to profile_edit_path(), method: :get do %>
               <div class="btn btn-sm btn-outline-secondary">Редактировать профиль</div>
             <% end %>
