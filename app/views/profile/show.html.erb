@@ -6,8 +6,9 @@
 
         <div style="width: 100px;height:100px">
             <%= image_tag @user.avatar.url(:thumb), :class=>"rounded-full" %>
-        </div>    
-        <p><%= @profile.bio%></p>
+        </div> 
+        <p>Имя: <%= @profile.name%></p>   
+        <p>Об Авторе: <%= @profile.bio%></p>
     
         <%= link_to follows_path(@user.id), method: :get do %>
             <span><%= @following_count %> following</span>

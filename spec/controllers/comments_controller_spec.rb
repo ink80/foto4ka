@@ -7,7 +7,7 @@ RSpec.describe CommentsController, type: :controller do
   describe '#create' do
     subject { process :create, method: :post, params: }
 
-    let(:params) { { post_id: post.id, comment: { body: 'New Comment' } } }
+    let(:params) { { post_id: post.id, comment: { body: 'New Comment', username: 'Any' } } }
     let(:post) { create(:post, user:) }
 
     it 'creates a comment' do

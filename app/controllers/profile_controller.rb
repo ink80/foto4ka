@@ -1,4 +1,6 @@
 class ProfileController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     id = params[:id]
 
@@ -23,10 +25,6 @@ class ProfileController < ApplicationController
 
   def edit
     @profile = Profile.find_by(user_id: current_user.id)
-  end
-
-  def show_all
-    @all_users = User.all
   end
 
   protected
