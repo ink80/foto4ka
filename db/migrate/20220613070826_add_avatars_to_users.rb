@@ -4,12 +4,12 @@ class AddAvatarsToUsers < ActiveRecord::Migration[7.0]
     add_column :users, :avatar_file_size, :integer
     add_column :users, :avatar_content_type, :string
     add_column :users, :avatar_updated_at, :datetime
- end
+  end
 
- def down
+  def down
     remove_column :users, :avatar_file_name, :string
     remove_column :users, :avatar_file_size, :integer
     remove_column :users, :avatar_content_type, :string
     remove_column :users, :avatar_updated_at, :datetime
- end
+  end
 end
