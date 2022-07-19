@@ -13,7 +13,7 @@ class ProfileController < ApplicationController
 
     @following_posts = Post.includes(:user).where('user_id' => @user.all_following)
 
-    @all_posts = Post.joins(:user).select(:id, :title, :body, :image, :image_file_name, :created_at, :updated_at,
+    @all_posts = Post.joins(:user).select(:id, :title, :body, :image_file_name, :created_at, :updated_at,
                                           :user_id).where('users.id' => id).order('posts.updated_at').reverse_order
   end
 
