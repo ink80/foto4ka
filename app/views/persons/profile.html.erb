@@ -1,4 +1,18 @@
-<h1>Persons#profile</h1>
-<p>Find me in app/views/persons/profile.html.erb</p>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="user-content" style="display:flex; gap: 16px"> 
+    <div class="user-info" style="flex-basis: 33%">
+        <h1>User: <%= current_user.username %></h1>
+
+        <div style="width: 150px;height:150px">
+            <%= image_tag current_user.avatar.url(:thumb), :class=>"rounded-full" %>
+        </div>    
+            
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+    </div>
+
+    <div class="follower-content">
+
+    </div>
+
+</div>
+

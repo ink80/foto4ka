@@ -1,0 +1,81 @@
+
+
+<div class="user-content" style="display:flex; gap: 16px"> 
+    <div class="user-info" style="flex-basis: 20%">
+        <h1>User: <%= @user.username %></h1>
+
+        <div style="width: 100px;height:100px">
+            <%= image_tag @user.avatar.url(:thumb), :class=>"rounded-full" %>
+        </div> 
+        <p>Имя: <%= @profile.name%></p>   
+        <p>Об Авторе: <%= @profile.bio%></p>
+    
+        <%= link_to follows_path(@user.id), method: :get do %>
+            <span><%= @following_count %> following</span>
+            <span><%= @follower_count %> followers</span>
+            <% end %>
+
+          <% if current_user.id == params['id'].to_i %>
+            <%= link_to profile_edit_path(), method: :get do %>
+              <div class="btn btn-sm btn-outline-secondary">Редактировать профиль</div>
+            <% end %>
+          <% else %>
+            <div class="btn btn-sm btn-secondary" id="follow-btn">
+              <%= render 'follows/follow_button', profile_id: params[:id] %>
+            </div>
+          <% end %>
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+    </div>
+
+    <div class="my-posts" style="flex-basis: 33%">
+            <h2>Users Posts</h2>
+        <ul>
+            <% @all_posts.each do |post| %>
+            <li class="post bg-grey">
+                <a class="text-black underline" href="<%= post_path(post) %>">
+                    <div class="bg-slate-50 flex flex-col gap-4 rounded p-4">
+                        <h2 class="text-black"><%=post.title%></h2>
+                        <%= image_tag post.image.url(:big), :class=>"rounded post-image" %>            
+                        <p class="text-slate-500"><%=post.body%></p>
+                        <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                        <div class="flex items-center gap-2">
+                        <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full small-avatar" %>
+                        <p class=" text-black"><%= post.user.username %></p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <%end%>
+        </ul>
+    </div>
+
+    <div class="following-content" style="flex-basis: 33%">
+        <h2>Following Posts</h2>
+
+            <ul>
+            <% @following_posts.each do |post| %>
+            <li class="post bg-grey">
+                <a class="text-black underline" href="<%= post_path(post) %>">
+                    <div class="bg-slate-50 flex flex-col gap-4 rounded p-4">
+                        <h2 class="text-black"><%=post.title%></h2>
+                        <%= image_tag post.image.url(:big), :class=>"rounded post-image" %>            
+                        <p class="text-slate-500"><%=post.body%></p>
+                        <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+                        <div class="flex items-center gap-2">
+                        <%= image_tag post.user.avatar.url(:thumb), :class=>"rounded-full small-avatar" %>
+                        <p class=" text-black"><%= post.user.username %></p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <%end%>
+        </ul>
+    </div>
+
+    <div class="follower-content">
+
+    </div>
+
+</div>
