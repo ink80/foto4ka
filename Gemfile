@@ -91,5 +91,6 @@ group :test do
 end
 
 gem 'tailwindcss-rails', '~> 2.0'
+gem 'sass-rails', '~> 6.0'
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower'
