@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  # delete '/posts/:post_id/likes/:id', to: 'likes#destroy'
+
   #followings
   get '/follows/:id', to: 'follows#show', as: 'follows'
   post '/follow/:id', to: 'follows#create', as: 'follow'
