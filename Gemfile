@@ -28,7 +28,7 @@ gem 'jbuilder'
 
 gem 'devise'
 
-gem 'paperclip'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 gem 'uri'
 
