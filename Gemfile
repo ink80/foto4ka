@@ -28,7 +28,7 @@ gem 'jbuilder'
 
 gem 'devise'
 
-gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'paperclip', :git => 'https://github.com/nikukyugamer/paperclip.git'
 
 gem 'uri'
 

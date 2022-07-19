@@ -1,12 +1,5 @@
 GIT
-  remote: https://github.com/tcocca/acts_as_follower.git
-  revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
-  specs:
-    acts_as_follower (0.2.1)
-      activerecord (>= 4.0)
-
-GIT
-  remote: https://github.com/thoughtbot/paperclip.git
+  remote: https://github.com/nikukyugamer/paperclip.git
   revision: c769382c9b7078f3d1620b50ec2a70e91ba62ec4
   specs:
     paperclip (6.1.0)
@@ -15,6 +8,13 @@ GIT
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+
+GIT
+  remote: https://github.com/tcocca/acts_as_follower.git
+  revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
+  specs:
+    acts_as_follower (0.2.1)
+      activerecord (>= 4.0)
 
 GEM
   remote: https://rubygems.org/
