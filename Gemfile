@@ -91,3 +91,5 @@ group :test do
 end
 
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower'
+
+gem 'sass-rails'
