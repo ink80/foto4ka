@@ -68,6 +68,11 @@ footer a {
 #content {
     min-height: 70vh;
     margin-bottom: 80px;
+    width: 100%
+}
+
+ul {
+    list-style: none;
 }
 
 .posts-container ul li {
