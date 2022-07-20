@@ -7,11 +7,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     enable_starttls_auto: true,
-    address:              'smtp.gmail.com',
+    address:              'smtp-relay.sendinblue.com ',
     port:                 587,
-    user_name:            'igorkozachuk@gmail.com',
-    password:             ENV['EMAIL_PASSWORD'],
-    authentication:       'login',
+    user_name:            'ink80@yandex.ru',
+    password:             '0hjGfgUE1Jd3xXqn',
+    authentication:       'plain',
   }
 
   # Code is not reloaded between requests.
