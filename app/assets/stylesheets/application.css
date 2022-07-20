@@ -126,6 +126,69 @@ footer a {
     border-radius: 4px;
 }
 
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.h-28 {
+    height: 28px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.rounded-full {
+    border-radius: 50%;
+}
+
+.bg-grey {
+    background-color: #fafafa;
+}
+
+.text-black {
+    color: #000;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bg-slate-50 {
+    background-color: #e3e3e3;
+}
+
+.gap-4 {
+    gap: 8px;
+}
+
+.rounded {
+    border-radius: 4px;
+}
+
+.p-4 {
+    padding: 8px;
+}
+
 @media screen and (max-width: 1024px) {
     .posts-container ul li {
         min-width: 100%;
