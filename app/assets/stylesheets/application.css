@@ -189,6 +189,18 @@ footer a {
     padding: 8px;
 }
 
+.width-auto {
+    width: auto;
+}
+
+.text-slate-500 {
+    color: #769465;
+}
+
+.w-full {
+    width: 100%;
+}
+
 @media screen and (max-width: 1024px) {
     .posts-container ul li {
         min-width: 100%;
