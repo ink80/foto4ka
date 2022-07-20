@@ -143,6 +143,7 @@ ul {
 
 .items-center {
     align-items: center;
+    justify-content: flex-start;
 }
 
 .flex-col {
