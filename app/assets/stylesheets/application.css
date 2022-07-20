@@ -201,6 +201,20 @@ footer a {
     width: 100%;
 }
 
+.justify-start {
+    justify-content: flex-start;
+}
+
+main {
+    flex-direction: column;
+    max-width: 100%;
+}
+
+h1 {
+    margin-bottom: 20px;
+    /* color: #fff; */
+}
+
 @media screen and (max-width: 1024px) {
     .posts-container ul li {
         min-width: 100%;
